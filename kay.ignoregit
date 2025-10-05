@@ -1,0 +1,23 @@
+tg_bot_api = '7616441524:AAEHCw-xytYUvPB6h4Xp4XZWiX4sbpL7q3Q'
+
+from datetime import datetime, timedelta
+import pytz
+
+# Установка часового пояса
+timezone = pytz.timezone('Europe/Berlin')  # Пример для часового пояса Европы/Берлина
+current_time = datetime.now(timezone)
+
+# Введите нужную дату
+target_date_str = '2025-05-15 10:30:00'  # Пример: 15 мая 2025 года, 10:30
+target_date = timezone.localize(datetime.strptime(target_date_str, '%Y-%m-%d %H:%M:%S'))
+
+# Вычисление времени до нужной даты
+time_diff = target_date - current_time
+
+# Вывод месяцев, дней и часов до нужной даты
+months = (target_date.year - current_time.year) * 12 + (target_date.month - current_time.month)
+days = time_diff.days
+hours, remainder = divmod(time_diff.seconds, 3600)
+minutes, seconds = divmod(remainder, 60)
+
+print(f"До нужной даты осталось: {months} месяцев, {days} дней, {hours} часов, {minutes} минут и {seconds} секунд.")
