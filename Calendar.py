@@ -280,7 +280,7 @@ async def calendar_yes_func(callback_query: CallbackQuery, state: FSMContext):
     try:
         date_name = user_data['event_day_name']
         button = InlineKeyboardButton(text='Добавить',
-                                      callback_data=f'set_time_notification_{data_id}_{date_name}')
+                                      callback_data=f'set_notif_{data_id}_{date_name}')
         keyboard = InlineKeyboardMarkup(inline_keyboard=[[button]])
 
         await state.clear()

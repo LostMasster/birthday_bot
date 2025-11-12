@@ -135,7 +135,7 @@ async def waiting_for_name_event_func(message: Message, state: FSMContext):
                          reply_markup=await create_calendar())
 
 
-@handler_with_hours.callback_query(lambda c: c.data.startswith('set_time_notification_'))
+@handler_with_hours.callback_query(lambda c: c.data.startswith('set_notif_'))
 async def set_time_notification_func(callback_query: CallbackQuery):
     await callback_query.message.edit_reply_markup(reply_markup=None)
     data_id = callback_query.data.split('_')[3]
